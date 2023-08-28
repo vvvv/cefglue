@@ -20,8 +20,8 @@ namespace Xilium.CefGlue.Interop
         public const int CHROME_VERSION_PATCH = 134;
         
         public const string CEF_API_HASH_UNIVERSAL = "b6255e15aa977a7214cf28e4e1a2372b454838d4";
-        
-        public const string CEF_API_HASH_PLATFORM_WIN = "b262c3a2cbd2632de1bfed887da8b8114c9ecbf5";
+
+        public const string CEF_API_HASH_PLATFORM_WIN = "3e576f9510d3ae2241dcfc43f6e0411025d25915";//"b262c3a2cbd2632de1bfed887da8b8114c9ecbf5";
         public const string CEF_API_HASH_PLATFORM_MACOS = "fd6d3d83442fe31ad26d5648755e0cf2e14a7fc7";
         public const string CEF_API_HASH_PLATFORM_LINUX = "d686964de5e01eed900d78d5f8a7da9f8fc3a777";
     }

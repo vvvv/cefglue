@@ -106,7 +106,13 @@ namespace Xilium.CefGlue.Interop
         [SuppressUnmanagedCodeSecurity]
         #endif
         internal delegate void on_accelerated_paint_delegate(cef_render_handler_t* self, cef_browser_t* browser, CefPaintElementType type, UIntPtr dirtyRectsCount, cef_rect_t* dirtyRects, void* shared_handle);
-        
+
+        [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
+        #if !DEBUG
+        [SuppressUnmanagedCodeSecurity]
+        #endif
+        internal delegate void on_accelerated_paint2_delegate(cef_render_handler_t* self, cef_browser_t* browser, CefPaintElementType type, UIntPtr dirtyRectsCount, cef_rect_t* dirtyRects, void* shared_handle, int newTexture);
+
         [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
         #if !DEBUG
         [SuppressUnmanagedCodeSecurity]

@@ -251,6 +251,43 @@
         protected abstract void OnAcceleratedPaint(CefBrowser browser, CefPaintElementType type, CefRectangle[] dirtyRects, IntPtr sharedHandle);
 
 
+        private void on_accelerated_paint2(cef_render_handler_t* self, cef_browser_t* browser, CefPaintElementType type, UIntPtr dirtyRectsCount, cef_rect_t* dirtyRects, void* shared_handle, int newTexture)
+        {
+            CheckSelf(self);
+
+            var m_browser = CefBrowser.FromNative(browser);
+
+            // TODO: reuse arrays?
+            var m_dirtyRects = new CefRectangle[(int)dirtyRectsCount];
+
+            var count = (int)dirtyRectsCount;
+            var rect = dirtyRects;
+            for (var i = 0; i < count; i++)
+            {
+                m_dirtyRects[i].X = rect->x;
+                m_dirtyRects[i].Y = rect->y;
+                m_dirtyRects[i].Width = rect->width;
+                m_dirtyRects[i].Height = rect->height;
+
+                rect++;
+            }
+
+            OnAcceleratedPaint2(m_browser, type, m_dirtyRects, (IntPtr)shared_handle, newTexture);
+        }
+
+        /// <summary>
+        /// Called when an element has been rendered to the shared texture handle.
+        /// |type| indicates whether the element is the view or the popup widget.
+        /// |dirtyRects| contains the set of rectangles in pixel coordinates that need
+        /// to be repainted. |shared_handle| is the NT handle for a D3D11 Texture2D that
+        /// can be accessed via ID3D11Device1 using the OpenSharedResource1 method. 
+        /// |newTexture| is 0 if the texture is not a new resource and 1 if it is. This
+        /// method is only called when CefWindowInfo::SharedTextureEnabled is set to
+        /// true, and is currently only supported on Windows.
+        /// </summary>
+        protected abstract void OnAcceleratedPaint2(CefBrowser browser, CefPaintElementType type, CefRectangle[] dirtyRects, IntPtr sharedHandle, int newTexture);
+
+
         private int start_dragging(cef_render_handler_t* self, cef_browser_t* browser, cef_drag_data_t* drag_data, CefDragOperationsMask allowed_ops, int x, int y)
         {
             CheckSelf(self);
