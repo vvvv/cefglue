@@ -164,6 +164,23 @@ class CefRenderHandler : public virtual CefBaseRefCounted {
                                   void* shared_handle) {}
 
   ///
+  // Called when an element has been rendered to the shared texture handle.
+  // |type| indicates whether the element is the view or the popup widget.
+  // |dirtyRects| contains the set of rectangles in pixel coordinates that need
+  // to be repainted. |shared_handle| is the NT handle for a D3D11 Texture2D that
+  // can be accessed via ID3D11Device1 using the OpenSharedResource1 method. 
+  // |new_texture| is true if the shared handle passed is different than the 
+  // previous. 
+  // This method is only called when CefWindowInfo::shared_texture_enabled
+  // is set to true, and is currently only supported on Windows.
+  ///
+  /*--cef()--*/
+  virtual void OnAcceleratedPaint2(CefRefPtr<CefBrowser> browser,
+                                  PaintElementType type,
+                                  const RectList& dirtyRects,
+                                  void* shared_handle) {}
+
+  ///
   // Called when the user starts dragging content in the web view. Contextual
   // information about the dragged content is supplied by |drag_data|.
   // (|x|, |y|) is the drag start location in screen coordinates.
