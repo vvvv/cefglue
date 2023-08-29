@@ -75,6 +75,10 @@ namespace Xilium.CefGlue.WPF
         {
         }
 
+        protected override void OnAcceleratedPaint2(CefBrowser browser, CefPaintElementType type, CefRectangle[] dirtyRects, IntPtr sharedHandle, int newTexture)
+        {
+        }
+
         protected override void OnPaint(CefBrowser browser, CefPaintElementType type, CefRectangle[] dirtyRects, IntPtr buffer, int width, int height)
         {
             _logger.Debug("Type: {0} Buffer: {1:X8} Width: {2} Height: {3}", type, buffer, width, height);

@@ -22,6 +22,7 @@ namespace Xilium.CefGlue.Interop
         internal IntPtr _on_popup_size;
         internal IntPtr _on_paint;
         internal IntPtr _on_accelerated_paint;
+        internal IntPtr _on_accelerated_paint2;
         internal IntPtr _start_dragging;
         internal IntPtr _update_drag_cursor;
         internal IntPtr _on_scroll_offset_changed;
