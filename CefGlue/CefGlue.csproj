@@ -8,6 +8,8 @@
 
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
+    <NoWarn>$(NoWarn)CS1591;CS8632</NoWarn>
+    <Nullable>disable</Nullable>
 
     <Version>103.0.12</Version>
     <IsPackable>true</IsPackable>
