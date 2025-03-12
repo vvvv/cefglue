@@ -16,8 +16,10 @@ namespace Xilium.CefGlue.Interop
         internal IntPtr _on_register_custom_preferences;
         internal IntPtr _on_context_initialized;
         internal IntPtr _on_before_child_process_launch;
+        internal IntPtr _on_already_running_app_relaunch;
         internal IntPtr _on_schedule_message_pump_work;
         internal IntPtr _get_default_client;
+        internal IntPtr _get_default_request_context_handler;
         
         [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
         #if !DEBUG
@@ -65,6 +67,12 @@ namespace Xilium.CefGlue.Interop
         #if !DEBUG
         [SuppressUnmanagedCodeSecurity]
         #endif
+        internal delegate int on_already_running_app_relaunch_delegate(cef_browser_process_handler_t* self, cef_command_line_t* command_line, cef_string_t* current_directory);
+        
+        [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
+        #if !DEBUG
+        [SuppressUnmanagedCodeSecurity]
+        #endif
         internal delegate void on_schedule_message_pump_work_delegate(cef_browser_process_handler_t* self, long delay_ms);
         
         [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
@@ -72,6 +80,12 @@ namespace Xilium.CefGlue.Interop
         [SuppressUnmanagedCodeSecurity]
         #endif
         internal delegate cef_client_t* get_default_client_delegate(cef_browser_process_handler_t* self);
+        
+        [UnmanagedFunctionPointer(libcef.CEF_CALLBACK)]
+        #if !DEBUG
+        [SuppressUnmanagedCodeSecurity]
+        #endif
+        internal delegate cef_request_context_handler_t* get_default_request_context_handler_delegate(cef_browser_process_handler_t* self);
         
         private static int _sizeof;
         

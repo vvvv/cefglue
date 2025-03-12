@@ -9,7 +9,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
 
-    <Version>118.1.1</Version>
+    <Version>132.3.2</Version>
     <IsPackable>true</IsPackable>
   </PropertyGroup>
 
@@ -142,12 +142,17 @@
     <Compile Include="Classes.Proxies\CefX509CertPrincipal.cs" />
     <Compile Include="Classes.Proxies\CefXmlReader.cs" />
     <Compile Include="Classes.Proxies\CefZipReader.cs" />
+    <Compile Include="Enums\CefTaskType.cs" />
+    <Compile Include="Enums\CefDomFormControlType.cs" />
     <Compile Include="Enums\CefAlphaType.cs" />
     <Compile Include="Enums\CefCertStatus.cs" />
     <Compile Include="Enums\CefChannelLayout.cs" />
     <Compile Include="Enums\CefChromeToolbarButtonType.cs" />
     <Compile Include="Enums\CefChromeToolbarType.cs" />
     <Compile Include="Enums\CefColorModel.cs" />
+    <Compile Include="Enums\CefRuntimeStyle.cs" />
+    <Compile Include="Enums\CefZoomCommand.cs" />
+    <Compile Include="Enums\CefColorVariant.cs" />
     <Compile Include="Enums\CefColorType.cs" />
     <Compile Include="Enums\CefCompositionUnderlineStyle.cs" />
     <Compile Include="Enums\CefContentSettingTypes.cs" />
@@ -221,7 +226,6 @@
     <Compile Include="Enums\CefUriUnescapeRules.cs" />
     <Compile Include="Enums\CefUrlRequestFlags.cs" />
     <Compile Include="Enums\CefUrlRequestStatus.cs" />
-    <Compile Include="Enums\CefV8AccessControl.cs" />
     <Compile Include="Enums\CefV8PropertyAttribute.cs" />
     <Compile Include="Enums\CefValueType.cs" />
     <Compile Include="Enums\CefWindowOpenDisposition.cs" />
@@ -232,6 +236,9 @@
     <Compile Include="Exceptions\CefVersionMismatchException.cs" />
     <Compile Include="Extensions\CefBrowserHostExtensions.cs" />
     <Compile Include="Interop\libcef.win.cs" />
+    <Compile Include="Interop\Structs\cef_accelerated_paint_info_common_t.cs" />
+    <Compile Include="Interop\Structs\cef_accelerated_paint_info_t.cs" />
+    <Compile Include="Interop\Structs\cef_task_info_t.cs" />
     <Compile Include="Interop\Structs\cef_insets_t.cs" />
     <Compile Include="Interop\Structs\cef_touch_handle_state_t.cs" />
     <Compile Include="Interop\_Platform\NativeMethods.cs" />
@@ -280,6 +287,7 @@
     <Compile Include="Platform\Windows\WindowStylesEx.cs" />
     <Compile Include="StringHelper.cs" />
     <Compile Include="Structs\CefAudioParameters.cs" />
+    <Compile Include="Structs\CefAcceleratedPaintInfo.cs" />
     <Compile Include="Structs\CefTime.cs" />
     <Compile Include="Structs\CefBaseTime.cs" />
     <Compile Include="Structs\CefBrowserSettings.cs" />
